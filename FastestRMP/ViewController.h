@@ -8,7 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController{
+
+}
+
+@property (weak, nonatomic) IBOutlet UIImageView *RMP;
+@property (weak, nonatomic) IBOutlet UIImageView *needle;
+
+- (IBAction)RMPMover:(UIPanGestureRecognizer *)recognizer;
 
 
 @end
