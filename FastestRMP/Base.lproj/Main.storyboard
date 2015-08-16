@@ -1,36 +1,63 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--FastestRMPViewContoller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController">
+                <viewController title="FastestRMPViewContoller" id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Fvr-ul-ivy"/>
+                        <viewControllerLayoutGuide type="bottom" id="iQg-ZY-spO"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="RymB8v2" id="fCX-jv-Bvx">
-                                <rect key="frame" x="27" y="144" width="266" height="279"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="RymB8v2" translatesAutoresizingMaskIntoConstraints="NO" id="fCX-jv-Bvx">
+                                <rect key="frame" x="27" y="144" width="266" height="300"/>
                                 <gestureRecognizers/>
                             </imageView>
-                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="olnJarq" id="Fiv-RS-73M">
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="olnJarq" translatesAutoresizingMaskIntoConstraints="NO" id="Fiv-RS-73M">
                                 <rect key="frame" x="122" y="208" width="77" height="152"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="152" id="khh-iQ-Wlh"/>
+                                </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Highest speed is: 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mbD-63-jol">
+                                <rect key="frame" x="27" y="57" width="266" height="33"/>
+                                <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="33" id="kj2-vl-rAm"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="Fiv-RS-73M" secondAttribute="trailing" constant="105" id="0uL-AK-mtB"/>
+                            <constraint firstItem="Fiv-RS-73M" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="106" id="1T7-mc-qg0"/>
+                            <constraint firstItem="mbD-63-jol" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="11" id="7KB-r9-geL"/>
+                            <constraint firstItem="fCX-jv-Bvx" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="11" id="UA1-tv-64d"/>
+                            <constraint firstItem="Fiv-RS-73M" firstAttribute="top" secondItem="mbD-63-jol" secondAttribute="bottom" constant="118" id="Zys-UK-Qed"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="fCX-jv-Bvx" secondAttribute="trailing" constant="11" id="egZ-Ts-dPX"/>
+                            <constraint firstItem="fCX-jv-Bvx" firstAttribute="top" secondItem="mbD-63-jol" secondAttribute="bottom" constant="54" id="fmr-BL-xeg"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="mbD-63-jol" secondAttribute="trailing" constant="11" id="mEZ-jb-Ixb"/>
+                            <constraint firstItem="mbD-63-jol" firstAttribute="top" secondItem="Fvr-ul-ivy" secondAttribute="bottom" constant="37" id="yit-x3-qPB"/>
+                        </constraints>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="2TO-Ga-ewW" appends="YES" id="nT2-3a-cEm"/>
                         </connections>
                     </view>
                     <connections>
-                        <outlet property="RMP" destination="fCX-jv-Bvx" id="eOX-uf-C2t"/>
+                        <outlet property="displayTheSpeed" destination="mbD-63-jol" id="roi-lV-0A4"/>
                         <outlet property="needle" destination="Fiv-RS-73M" id="Ckm-gK-msL"/>
                     </connections>
                 </viewController>
@@ -38,6 +65,7 @@
                 <panGestureRecognizer minimumNumberOfTouches="1" id="2TO-Ga-ewW">
                     <connections>
                         <action selector="RMPMover:" destination="vXZ-lx-hvc" id="HU4-tC-ykx"/>
+                        <outlet property="delegate" destination="fCX-jv-Bvx" id="IH1-5p-aV0"/>
                     </connections>
                 </panGestureRecognizer>
             </objects>

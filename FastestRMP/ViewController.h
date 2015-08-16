@@ -12,7 +12,7 @@
 
 }
 
-@property (weak, nonatomic) IBOutlet UIImageView *RMP;
+
 @property (weak, nonatomic) IBOutlet UIImageView *needle;
 
 - (IBAction)RMPMover:(UIPanGestureRecognizer *)recognizer;

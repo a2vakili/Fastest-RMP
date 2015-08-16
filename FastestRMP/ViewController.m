@@ -9,9 +9,10 @@
 #import "ViewController.h"
 
 @interface ViewController ()
-//{
-//    NSDate *lastCalled;
-//}
+@property (weak, nonatomic) IBOutlet UILabel *displayTheSpeed;
+@property(nonatomic,assign) CGFloat speed;
+
+
 
 @end
 
@@ -19,8 +20,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
-    _needle.transform= CGAffineTransformRotate(self.needle.transform, 45*M_PI/180);
+    self.speed = 0;
+    _needle.transform= CGAffineTransformRotate(self.needle.transform, 45 * M_PI/180);
+    
+   
 }
 
 - (void)didReceiveMemoryWarning {
@@ -31,50 +34,42 @@
 - (IBAction)RMPMover:(UIPanGestureRecognizer *)recognizer {
     
     CGPoint velocity= [recognizer velocityInView:self.view];
-    CGFloat speed= sqrtf((velocity.x * velocity.x)+ (velocity.y * velocity.y));
+   self.speed= sqrtf((velocity.x * velocity.x)+ (velocity.y * velocity.y));
     
-    CGFloat angle = speed / 9000 * M_PI * 2;
+    CGFloat angle = self.speed / 6000 * M_PI * 2;
+    
+    
+    if ([recognizer state] == UIGestureRecognizerStateBegan) {
+        _needle.transform = CGAffineTransformMakeRotation(360);
+    }
     
     
     if ([recognizer state] == UIGestureRecognizerStateChanged) {
         
-//        NSDate *nowDate = [NSDate date];
-//        
-//        NSTimeInterval difference = [nowDate timeIntervalSinceDate:lastCalled];
-//        
-//        lastCalled = nowDate;
         
         _needle.transform = CGAffineTransformMakeRotation(angle);
-//         _needle.transform= CGAffineTransformRotate(self.needle.transform, angle);
         
-        NSLog(@"the speed is %f", speed);
+        NSString *speedString = [NSString stringWithFormat:@"Highest speed is: %f",self.speed];
+        
+        self.displayTheSpeed.text = speedString;
+        
+        NSLog(@"the speed is %f", self.speed);
     }
     
-//    else if (speed >200){
-//        _needle.transform= CGAffineTransformRotate(self.needle.transform, 4*M_PI/180);
-//        
-//    }
-//    else if (speed >300){
-//        _needle.transform= CGAffineTransformRotate(self.needle.transform, 6*M_PI/180);
-//    }
-//    
-//    else if (speed > 400){
-//        _needle.transform= CGAffineTransformRotate(self.needle.transform, 8*M_PI/180);
-    //}
-    if ([recognizer state] == UIGestureRecognizerStateEnded){
-      
+    
+    if ([recognizer state] == UIGestureRecognizerStateEnded || [recognizer state] == UIGestureRecognizerStateFailed || [recognizer state] == UIGestureRecognizerStateCancelled){
         
-        [UIView animateWithDuration:1
-                              delay:0.0
+           // checking for different states whether and animating back to our original position
+        [UIView animateWithDuration:2
+                              delay:0.1
                             options:0
                          animations:^{
-                            _needle.transform= CGAffineTransformMakeRotation(45*M_PI/180);
+                             _needle.transform= CGAffineTransformMakeRotation(45 * M_PI/180);
                          }
                          completion:^(BOOL finished){
                              NSLog(@"Done!");
                          }];
-
-
+        
     }
 }
 
